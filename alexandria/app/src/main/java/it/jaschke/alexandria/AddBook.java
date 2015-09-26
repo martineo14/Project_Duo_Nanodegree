@@ -145,8 +145,10 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         super.onActivityResult(requestCode, resultCode, data);
         // check if the request code is same as what is passed  here it is 2
         if (requestCode == 1) {
-            String scanBarCode = data.getStringExtra("SCAN_BAR_CODE");
-            ean.setText(scanBarCode);
+            if (data != null) {
+                String scanBarCode = data.getStringExtra("SCAN_BAR_CODE");
+                ean.setText(scanBarCode);
+            }
         }
     }
 
